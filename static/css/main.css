@@ -1,0 +1,47 @@
+/*
+Главный файл для стилей
+*/
+
+h1 {
+    text-align: center;
+}
+
+#banners {
+    position: relative;
+}
+
+#banners img {
+    width: 100%;
+}
+
+#banners h2 {
+    position: absolute;
+    top: 120px;
+    left: 400px;
+    font-family: cursive;
+    color: gold;
+    font-size: 70px;
+}
+
+.carousel-inner {
+    width: 60%;
+    height: 50%;
+    margin: auto;
+}
+
+#menu-chef p, h5, h1 {
+    color: black;
+    font-family: cursive;
+}
+
+#menu-chef h5 {
+    font-size: 35px;
+}
+
+#menu-chef p {
+    font-size: 20px;
+}
+
+#menu-chef h1 {
+    font-size: 50px;
+}

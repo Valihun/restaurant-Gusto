@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="card-body">
+        <div><h5 class="card-title"><a href="/menu/{{ dish.pk }}">{{ dish.title }}</a></h5></div>
+        <div><p class="card-text">{{ dish.description }}</p></div>
+        <div><p>{{ dish.price }} &#8372</p></div>
+        <div><a href="#" class="btn btn-primary">Go somewhere</a></div>
+    </div>
+
+{% endblock %}
