@@ -5,15 +5,15 @@ from .models import UserMessages
 class UserMessageForm(forms.ModelForm):
     user_name = forms.CharField(max_length=50,
                                 widget=forms.TextInput(attrs={'type': 'text', 'id': 'name', 'class': 'form-control',
-                                                              'placeholder': 'Ім\'я', 'required': 'required'}))
+                                                              'placeholder': 'Name', 'required': 'required'}))
     user_email = forms.EmailField(widget=forms.TextInput(attrs={'type': 'email', 'id': 'email',
                                                                 'class': 'form-control',
-                                                                'placeholder': 'Електронна пошта',
+                                                                'placeholder': 'Email',
                                                                 'required': 'required'}))
     message = forms.CharField(max_length=200,
                               widget=forms.Textarea(
                                   attrs={'name': 'message', 'id': 'message', 'class': 'form-control',
-                                         'rows': '4', 'placeholder': 'Повідомлення',
+                                         'rows': '4', 'placeholder': 'Your lovely message',
                                          'required': 'required'}))
 
     class Meta:

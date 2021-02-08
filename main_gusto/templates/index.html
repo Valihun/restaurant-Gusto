@@ -4,88 +4,49 @@
 
 <section id="banners">
 	{% for item in banners %}
-	<div><img src="{{ item.photo.url }}" alt></div>
-	<div class="container">
-		<div class="row">
-			<div class="col-xs-12 col-sm-6">
-				<h2>{{ item.title }}</h2>
-			</div>
+	<div class="banners__img"><img src="{{ item.photo.url }}" alt></div>
+	<div class="container center">
+		<div class="banners__text">
+			<h2>{{ item.title }}</h2>
 		</div>
-	</div>
-	{% endfor %}
-</section>
-<section>
-	<h1 id="TodaySpecial" class="text-center text-uppercase">Today's special</h1>
-	<div class="text-center">
-		<div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel" data-interval="5000">
-			<ol class="carousel-indicators">
-				{% for item in special_categories %}
-				{% if forloop.counter0 == 0 %}
-				<li data-bs-target="#carouselExampleCaptions" data-bs-slide-to="{{ forloop.counter0 }}" class="active">
-				</li>
-				{% else %}
-				<li data-bs-target="#carouselExampleCaptions" data-bs-slide-to="{{ forloop.counter0 }}"></li>
-				{% endif %}
-				{% endfor %}
-			</ol>
-			<div class="carousel-inner">
-				{% for item in special_categories %}
-				{% if forloop.counter0 == 0 %}
-				{% for dish in item.dishes %}
-				<div class="carousel-item active">
-					<img src="{{ dish.photo.url }}" class="d-block w-100" alt>
-					<div class="carousel-caption d-none d-md-block">
-						<h5>{{ dish.title }}</h5>
-						<p>{{ dish.description }}</p>
+		{% endfor %}
+		<div class="reservation">
+			<form name="sendMessage" id="contactForm" novalidate action="" method="post">
+				{% csrf_token %}
+				<h1>Reservation</h1>
+				<div class="reserv">
+					<div class="reserv__name">
+						{{ form.user_name }}
+					</div>
+					<div class="reserv__email">
+						{{ form.user_email }}
+					</div>
+
+					<div class="reserv__message">
+						{{ form.message }}
 					</div>
 				</div>
-				{% endfor %}
-				{% else %}
-				{% for dish in item.dishes %}
-				<div class="carousel-item">
-					<img src="{{ dish.photo.url }}" class="d-block w-100" alt>
-					<div class="carousel-caption d-none d-md-block">
-						<h5>{{ dish.title }}</h5>
-						<p>{{ dish.description }}</p>
-					</div>
-				</div>
-				{% endfor %}
-				{% endif %}
-				{% endfor %}
-			</div>
+				<button type="submit" class="reserv__btn">Book now</button>
+			</form>
 		</div>
 	</div>
 </section>
 
-<section>
-	<h1 class="text-center text-uppercase">Menu</h1>
-	<div class="container">
-		{% for item in categories %}
-		<div class="row">
-			<h2 class="text-center text-uppercase">{{ item.title }}</h2>
-			{% for dish in item.dishes %}
-			<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-				<div class="card" style="width: 18rem;">
-					<img src="{{ dish.photo.url }}" class="card-img-top" alt>
-					<div class="card-body">
-						<div>
-							<h5 class="card-title"><a href="/menu/{{ dish.pk }}">{{ dish.title }}</a></h5>
-						</div>
-						<div>
-							<p class="card-text">{{ dish.description }}</p>
-						</div>
-						<div>
-							<p>{{ dish.price }} &#8372</p>
-						</div>
-						<div><a href="#" class="btn btn-primary">Go somewhere</a></div>
-					</div>
-				</div>
-			</div>
-			{% endfor %}
+<div class="text__center">Discover <br /> Our Menu</div>
+
+<section id="menu">
+	<div class="slide-card">
+		<div class="fake-img" alt="1"></div>
+	</div>
+	<div class="detail-box">
+		<div class="type">
+			<a href="#">Rabbed Cardigan</a>
+			<span>Noe Arrival</span>
 		</div>
-		{% endfor %}
+		<a href="#" class="price">23</a>
 	</div>
 </section>
+
 <section id="events">
 	<h1 class="text-center text-uppercase">Events</h1>
 	<div class="container">
@@ -115,27 +76,11 @@
 		</div>
 	</div>
 </section>
-<section id="reservation">
-	<div class="container">
-		<div class="col-md-8 col-md-offset-2">
-			<form name="sendMessage" id="contactForm" novalidate action="" method="post">
-				{% csrf_token %}
-				<div class="row">
-					<div class="col-md-6">
-						{{ form.user_name }}
-					</div>
-					<div class="col-md-6">
-						{{ form.user_email }}
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-md-6">
-						{{ form.message }}
-					</div>
-				</div>
-				<button type="submit" class="btn btn-custom btn-lg">Відправити повідомлення</button>
-			</form>
-		</div>
-	</div>
-</section>
+
+
+<div class="box">
+
+</div>
+
+
 {% endblock %}
