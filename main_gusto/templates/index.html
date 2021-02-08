@@ -35,15 +35,15 @@
 <div class="text__center">Discover <br /> Our Menu</div>
 
 <section id="menu">
-	<div class="slide-card">
-		<div class="fake-img" alt="1"></div>
-	</div>
-	<div class="detail-box">
-		<div class="type">
-			<a href="#">Rabbed Cardigan</a>
-			<span>Noe Arrival</span>
-		</div>
-		<a href="#" class="price">23</a>
+	<div class="categories center">
+		{% for item in categories %}
+		<a href="#">
+			<div class="card">
+				<img src="{{ item.photo.url }}" alt="">
+				<h1 class="card__title">{{ item.title }}</h1>
+			</div>
+		</a>
+		{% endfor %}
 	</div>
 </section>
 

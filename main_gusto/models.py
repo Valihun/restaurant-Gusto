@@ -11,7 +11,7 @@ class Category(models.Model):
     def get_file_name_category(self, filename):
         ext = filename.split('.')[-1]
         filename = f'{uuid4()}.{ext}'
-        return os.path.join('images/category', filename)
+        return os.path.join('images/category/', filename)
 
     title = models.CharField(max_length=50)
     category_order = models.IntegerField()

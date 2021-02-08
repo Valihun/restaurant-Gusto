@@ -51,18 +51,4 @@
 	</footer>
 </body>
 
-<script type="text/javascript">
-	const anchors = document.querySelectorAll('a[href*="#"]');
-	for (let anchor in anchors) {
-		anchor.addEventListener("click", function (event) {
-			event.preventDefault('href');
-			const blockId = anchor.getAttribute('href');
-			document.querySelector('' + blockId).scrollIntoView({
-				behavior: "smoth",
-				block: "start",
-			})
-		})
-	}
-</script>.
-
 </html>
