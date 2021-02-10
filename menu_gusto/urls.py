@@ -3,5 +3,5 @@ from .views import *
 
 
 urlpatterns = [
-    path('<int:pk>', dish_info),
+    path('', dish_info),
 ]

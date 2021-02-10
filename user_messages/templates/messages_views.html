@@ -2,8 +2,7 @@
 
 {% block content %}
 
-    {% if 'Manager' in user.groups.all.0.name or user.is_staff %}
-        <div class="container">
+<div class="container">
 	<h3>Сообщения от пользователей</h3>
 	<div class="col-md-10 col-md-offset-1">
 		{% for item in items %}
@@ -23,7 +22,7 @@
 	</div>
 </div>
 
-        <div id="navigation" class="container">
+<div id="navigation" class="container">
 	<div class="row">
 		<div class="col-md-10 col-md-offset-1">
 			<nav aria-label="Page navigation example">
@@ -64,5 +63,4 @@
 		</div>
 	</div>
 </div>
-    {% endif %}
 {% endblock %}

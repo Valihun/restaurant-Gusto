@@ -1,8 +1,13 @@
 from django.shortcuts import render
 from main_gusto.models import Dish
+from django.http import HttpResponse, HttpResponseNotFound
 
 
 # Create your views here.
-def dish_info(request, pk):
-    dish = Dish.objects.get(pk=pk)
-    return render(request, 'dish.html', context={'dish': dish, })
+# Напомнить Эдварду чтобы рассказал что происходит после того, как нажимаем на категорию "Салаты"
+def dish_info(request, category):
+    try:
+        dishes = Dish.objects.filter(title=category)
+        return render(request, 'dish.html', context={'category': dishes, })
+    except Dish.DoesNotExist:
+        return HttpResponseNotFound("Page not found")

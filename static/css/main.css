@@ -5,7 +5,7 @@ Main style's file
 @import url("https://fonts.googleapis.com/css2?family=PT+Serif&display=swap");
 
 :root {
-	--body_bg: gray;
+	--body_bg: black;
 	--main_color: #ffd900;
 	--center_width: 1600px;
 	--main_font: "Lemonada", cursive;
@@ -29,6 +29,11 @@ body {
 /*=======================
 		Шапка сайта
 =======================*/
+
+header {
+	margin: 0px 0px 0px 0px;
+	padding: 0px 0px 0px 0px;
+}
 
 .header__in {
 	display: flex;
@@ -80,22 +85,41 @@ body {
 		Баннеры
 =====================*/
 
-.banners__img {
+#banners {
 	position: relative;
+	margin: 0px 0px 0px 0px;
+	padding: 0px 0px 0px 0px;
+	width: 100%;
+	height: 900px;
+}
+
+.banners__container {
+	position: relative;
+	z-index: 2;
+	display: flex;
+	padding-top: 100px;
+}
+
+.banners__img {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
 }
 
 .banners__img img {
 	width: 100%;
-	height: 900px;
+	height: 100%;
 	opacity: 30%;
 }
 
 .banners__text {
+	margin: 100px 0px 0px 0px;
 	font-family: var(--main_font);
 	color: var(--main_color);
-	position: absolute;
-	top: 300px;
-	left: 200px;
+	font-size: 61px;
+	font-weight: bold;
 }
 
 .banners__text h2 {
@@ -107,10 +131,7 @@ body {
 =======================*/
 
 .reservation {
-	float: left;
-	position: absolute;
-	top: 150px;
-	left: 1400px;
+	float: right;
 	max-width: 400px;
 	margin: 10px auto;
 	padding: 16px;
@@ -211,44 +232,64 @@ body {
 }
 
 /*======================
-
+		About us
 ======================*/
 
-.info__img {
+.info {
 	position: relative;
-}
-
-.info__img img {
+	margin: 0px 0px 0px 0px;
+	padding: 0px 0px 0px 0px;
 	width: 100%;
 	height: 900px;
-	opacity: 20%;
 }
 
-.info-title,
-.info-text {
+.main__container {
+	position: relative;
+	z-index: 2;
+}
+
+.info__block {
+	display: flex;
+	justify-content: space-between;
+	margin: auto;
+}
+
+.info__title,
+.info__text {
 	color: var(--main_color);
 	font-family: "PT Serif", serif;
+	margin: auto;
+	/* margin: 0px 0px 0px 0px; */
 }
 
-.info-title {
-	position: absolute;
-	top: 1900px;
-	left: 250px;
+.info__title {
 	font-size: 100px;
 }
 
-.info-text {
+.info__text {
 	height: 720px;
 	width: 900px;
-	position: absolute;
-	top: 1690px;
-	left: 900px;
+	margin-top: 100px;
 	background-color: rgba(53, 53, 53, 0.75);
 	border-radius: 10px;
 	font-size: 19px;
-	/* text-align: center;*/
+	text-align: center;
 }
 
 .text {
 	padding: 10px 10px 10px 10px;
+}
+
+.info__img {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+}
+
+.info__img img {
+	width: 100%;
+	height: 100%;
+	opacity: 30%;
 }

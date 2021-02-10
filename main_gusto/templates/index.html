@@ -4,11 +4,8 @@
 
 <section id="banners">
 	{% for item in banners %}
-	<div class="banners__img"><img src="{{ item.photo.url }}" alt></div>
-	<div class="container center">
-		<div class="banners__text">
-			<h2>{{ item.title }}</h2>
-		</div>
+	<div class="banners__container center">
+		<div class="banners__text">{{ item.title }}</div>
 		{% endfor %}
 		<div class="reservation">
 			<form name="sendMessage" id="contactForm" novalidate action="" method="post">
@@ -21,7 +18,6 @@
 					<div class="reserv__email">
 						{{ form.user_email }}
 					</div>
-
 					<div class="reserv__message">
 						{{ form.message }}
 					</div>
@@ -30,13 +26,17 @@
 			</form>
 		</div>
 	</div>
+	{% for item in banners %}
+	<div class="banners__img"><img src="{{ item.photo.url }}" alt></div>
+	{% endfor %}
+
 </section>
 
 <section id="menu">
 	<div class="text__center">Discover <br /> Our Menu</div>
 	<div class="categories center">
 		{% for item in categories %}
-		<a href="#">
+		<a href="/menu?category={{ item.title }}">
 			<div class="card">
 				<img src="{{ item.photo.url }}" alt="">
 				<h1 class="card__title">{{ item.title }}</h1>
@@ -49,28 +49,19 @@
 <section id="about-us">
 	<div class="info">
 		{% for item in info %}
-		<div class="info__img"><img src="{{ item.photo.url }}" alt></div>
-		<div class="info__block center">
-			<div class="info-title">{{ item.title }}</div>
-			<div class="info-text">
-				<div class="text">
-					{{ item.discription|linebreaksbr }}
-				</div>
+		<div class="main__container center">
+			<div class="info__block">
+				<div class="info__title">{{ item.title }}</div>
+				<div class="info__text">{{ item.discription|linebreaksbr }}</div>
 			</div>
 		</div>
+		<div class="info__img"><img src="{{ item.photo.url }}" alt></div>
 		{% endfor %}
 	</div>
 </section>
 
-
 <section id="events">
 
 </section>
-
-
-<div class="box">
-
-</div>
-
 
 {% endblock %}
