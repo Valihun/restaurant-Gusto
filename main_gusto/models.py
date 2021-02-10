@@ -56,7 +56,7 @@ class Event(models.Model):
     price = models.DecimalField(max_digits=7, decimal_places=2)
 
     def __str__(self):
-        return f'{self.title}'
+        return f'{self.title} : {self.event_date}'
 
 
 class Banners(models.Model):

@@ -23,7 +23,7 @@ def main(request):
     for item in categories:
         item.dishes = Dish.objects.filter(category=item.pk)
 
-    events = Event.objects.filter(event_date__gte=datetime.date.today())
+    events = Event.objects.all()
 
     info = Info.objects.filter(is_visible=True)
 

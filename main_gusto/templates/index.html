@@ -61,6 +61,34 @@
 </section>
 
 <section id="events">
+	<div class="event__text">Events</div>
+	<div class="events__container center">
+		<div class="event__carousel">
+			{% for item in events %}
+			<div class="event__slide">
+				<!-- <div class="event__info">
+					<div class="event__title">{{ item.title }}</div>
+					<div class="event__description">{{ item.description }}</div>
+					<div class="event__info-block">
+						<span class="event__date">{{ item.event_date|date:'d.m' }}</span>
+						<span class="event__price">{{ item.price }}&#8372</span>
+						<span class="event__time">{{ item.event_time }}</span>
+					</div>
+				</div> -->
+				<div class="carousel__img"><img src="{{ item.photo.url }}" alt=""></div>
+			</div>
+			{% endfor %}
+		</div>
+
+		<div class="slide-controls">
+			<button id="prev-btn">
+				<i class="fas fa-chevron-left"></i>
+			</button>
+			<button id="next-btn">
+				<i class="fas fa-chevron-right"></i>
+			</button>
+		</div>
+	</div>
 
 </section>
 
