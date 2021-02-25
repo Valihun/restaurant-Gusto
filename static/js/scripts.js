@@ -1,82 +1,35 @@
-/*=====================
-		Slider
-=====================*/
+
+let header__burger = document.querySelector('.header__burger');
+let header_menu = document.querySelector('.menu__body');
+let back = document.querySelector('body');
+let header__list = document.querySelector('.menu__list');
+
+header__burger.onclick = function () {
+	header__burger.classList.toggle('active');
+	header_menu.classList.toggle('active');
+	back.classList.toggle('lock');
+}
+
+header__list.onclick = function () {
+	header__list.classList.remove('active');
+	back.classList.toggle('lock');
+}
 
 
-const slideContainer = document.querySelector('.events__container');
-const slide = document.querySelector('.event__carousel');
-const nextBtn = document.getElementById('next-btn');
-const prevBtn = document.getElementById('prev-btn');
-const interval = 5000;
-
-let slides = document.querySelectorAll('.carousel__img');
-let index = 1;
-let slideId;
-
-const firstClone = slides[0].cloneNode(true);
-const lastClone = slides[slides.length - 1].cloneNode(true);
-
-firstClone.id = 'first-clone';
-lastClone.id = 'last-clone';
-
-slide.append(firstClone);
-slide.prepend(lastClone);
-
-const slideWidth = slides[index].clientWidth;
-
-slide.style.transform = `translateX(${-slideWidth * index}px)`;
-
-console.log(slides);
-
-const startSlide = () => {
-	slideId = setInterval(() => {
-		moveToNextSlide();
-	}, interval);
-};
-
-const getSlides = () => document.querySelectorAll('.carousel__img');
-
-slide.addEventListener('transitionend', () => {
-	slides = getSlides();
-	if (slides[index].id === firstClone.id) {
-		slide.style.transition = 'none';
-		index = 1;
-		slide.style.transform = `translateX(${-slideWidth * index}px)`;
-	}
-
-	if (slides[index].id === lastClone.id) {
-		slide.style.transition = 'none';
-		index = slides.length - 2;
-		slide.style.transform = `translateX(${-slideWidth * index}px)`;
-	}
+new Swiper('.image-slider', {
+	// Стрелки
+	navigation: {
+		nextEl: '.swiper-button-next',
+		prevEl: '.swiper-button-prev'
+	},
 });
 
-const moveToNextSlide = () => {
-	slides = getSlides();
-	if (index >= slides.length - 1) return;
-	index++;
-	slide.style.transition = '.7s ease-out';
-	slide.style.transform = `translateX(${-slideWidth * index}px)`;
-};
-
-const moveToPreviousSlide = () => {
-	if (index <= 0) return;
-	index--;
-	slide.style.transition = '.7s ease-out';
-	slide.style.transform = `translateX(${-slideWidth * index}px)`;
-};
-
-slideContainer.addEventListener('mouseenter', () => {
-	clearInterval(slideId);
-});
-
-slideContainer.addEventListener('mouseleave', startSlide);
-nextBtn.addEventListener('click', moveToNextSlide);
-prevBtn.addEventListener('click', moveToPreviousSlide);
-
-startSlide();
 
 
-/*============================
+let intager = 1;
+let charfield = 'char';
+let double = 1.5;
 
-============================*/
+console.log(intager + charfield);
+console.log(double + intager);
+console.log(charfield + double);

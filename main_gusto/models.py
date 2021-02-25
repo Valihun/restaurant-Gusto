@@ -85,18 +85,3 @@ class UserMessages(models.Model):
     def __str__(self):
         return f'{self.user_name}-{self.user_email}: {self.message[:20]}'
 
-
-class Info(models.Model):
-
-    def get_file_name_info(self, filename):
-        ext = filename.split('.')[-1]
-        filename = f'{uuid4()}.{ext}'
-        return os.path.join('images/info/', filename)
-
-    title = models.CharField(max_length=100)
-    photo = models.ImageField(upload_to=get_file_name_info)
-    discription = models.TextField(null=True)
-    is_visible = models.BooleanField(default=True)
-
-    def __str__(self):
-        return f'{self.title}'

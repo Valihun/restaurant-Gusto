@@ -1,7 +1,7 @@
 import datetime
 from .forms import UserMessageForm
 from django.shortcuts import render, redirect
-from .models import Category, Dish, Event, Banners, Info
+from .models import Category, Dish, Event, Banners
 
 
 # Create your views here.
@@ -25,13 +25,10 @@ def main(request):
 
     events = Event.objects.all()
 
-    info = Info.objects.filter(is_visible=True)
-
     reservation_form = UserMessageForm()
 
     return render(request, 'index.html', context={'categories': categories,
                                                   'special_categories': special_categories,
                                                   'events': events,
                                                   'banners': banners,
-                                                  'form': reservation_form,
-                                                  'info': info})
+                                                  'form': reservation_form, })

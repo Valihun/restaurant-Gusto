@@ -2,10 +2,9 @@
 
 {% block content %}
 {% for dish in category %}
-{% endfor %}
 <div class="card-body">
 	<div>
-		<h5 class="card-title"><a href="/menu/{{ dish.pk }}">{{ dish.title }}</a></h5>
+		<h5 class="card-title">{{ dish.title }}</h5>
 	</div>
 	<div>
 		<p class="card-text">{{ dish.description }}</p>
@@ -15,5 +14,6 @@
 	</div>
 	<div><a href="#" class="btn btn-primary">Go somewhere</a></div>
 </div>
+{% endfor %}
 
 {% endblock %}

@@ -7,7 +7,7 @@ from django.http import HttpResponse, HttpResponseNotFound
 # Напомнить Эдварду чтобы рассказал что происходит после того, как нажимаем на категорию "Салаты"
 def dish_info(request, category):
     try:
-        dishes = Dish.objects.filter(title=category)
+        dishes = Dish.objects.all()
         return render(request, 'dish.html', context={'category': dishes, })
     except Dish.DoesNotExist:
         return HttpResponseNotFound("Page not found")
