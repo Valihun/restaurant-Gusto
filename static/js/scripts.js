@@ -10,10 +10,10 @@ header__burger.onclick = function () {
 	back.classList.toggle('lock');
 }
 
-header__list.onclick = function () {
-	header__list.classList.remove('active');
-	back.classList.toggle('lock');
-}
+// header__list.onclick = function () {
+// 	header__list.classList.remove('active');
+// 	back.classList.toggle('lock');
+// }
 
 
 new Swiper('.image-slider', {
@@ -23,13 +23,3 @@ new Swiper('.image-slider', {
 		prevEl: '.swiper-button-prev'
 	},
 });
-
-
-
-let intager = 1;
-let charfield = 'char';
-let double = 1.5;
-
-console.log(intager + charfield);
-console.log(double + intager);
-console.log(charfield + double);

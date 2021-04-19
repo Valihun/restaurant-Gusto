@@ -2,22 +2,23 @@
 
 
 
-{% block content%}
-<div class="container">
-	<div class="section-title text-center">
-		<h3>Увійти до системи</h3>
-	</div>
-	<div class="col-md-10 col-md-offset-1">
-		<div class="row">
-			<div class="col-md-6">
-				<form action="" method="post">
-					{% csrf_token %}
-					{{ form.as_p }}
-					<input type="submit" value="Увійти">
-					<a href="/register/">Register</a>
-				</form>
-			</div>
+{% block content %}
+<div class="login">
+	<div class="container">
+		<div class="login__title">
+			<h3>Enter to system</h3>
+		</div>
+		<div class="login__row">
+			<form action="" method="post" class="login__form">
+				{% csrf_token %}
+				{{ form.as_p }}
+				<input type="submit" value="Log in">
+				<h4>No account? You can register</h4>
+				<a href="/register/">Register</a>
+			</form>
 		</div>
 	</div>
 </div>
-{% endblock%}
+
+
+{% endblock %}

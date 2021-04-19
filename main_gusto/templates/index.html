@@ -37,7 +37,7 @@
 	<div class="categories container">
 		<div class="categories__cards">
 			{% for item in categories %}
-			<a href="/menu/{{ item.title }}">
+			<a href="/menu/{{ item.pk }}">
 				<div class="card">
 					<img src="{{ item.photo.url }}" alt="">
 					<h1 class="card__title">{{ item.title }}</h1>

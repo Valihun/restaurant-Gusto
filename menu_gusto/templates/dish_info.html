@@ -3,7 +3,6 @@
 {% block content %}
 
 <div class="dish__body container">
-	{% for dish in category %}
 	<div class="dish__card">
 		<div class="dish__img">
 			<img src="{{ dish.photo.url }}" alt>
@@ -15,13 +14,10 @@
 			<div class="dish__price">
 				<p>{{ dish.price }} &#8372</p>
 			</div>
-			<div class="btn__moreinfo"><a href="/menu/{{ dish.category.pk }}/{{ dish.pk }}" class="btn__info">Details</a>
-			</div>
+			<div class="btn__moreinfo"><a href="/menu/{{ category_id }}" class="btn__info">Back</a></div>
 		</div>
 	</div>
-	{% endfor %}
+
 </div>
-
-
 
 {% endblock %}

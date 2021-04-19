@@ -15,7 +15,7 @@ class UserLoginForm(forms.Form):
         if username and password:
             user = authenticate(username=username, password=password)
             if (not user) or (not user.check_password(password)):
-                raise forms.ValidationError('Невірний пароль або логін')
+                raise forms.ValidationError('Uncorrect username or password')
         return super().clean(*args, **kwargs)
 
 
@@ -31,6 +31,6 @@ class UserRegistrationForm(forms.ModelForm):
     def clean_password2(self, *args, **kwargs):
         data = self.cleaned_data
         if data['password'] != data['password2']:
-            raise forms.ValidationError('Паролі не співпадають')
+            raise forms.ValidationError('Passwords must match!')
 
         return data['password2']
