@@ -1,6 +1,7 @@
 @import "_numstyle.scss";
 @import "_logregout.scss";
 @import "_dish.scss";
+@import "_messages.scss";
 /*
 Main style's file
 */
@@ -115,7 +116,7 @@ body.lock {
 					Адаптив для header
 	==========================================*/
 
-	@media (max-width: 767px) {
+	@media (max-width: 1000px) {
 		&__body {
 			height: 45px;
 		}
@@ -383,13 +384,10 @@ body.lock {
 	&__cards {
 		max-width: 100%;
 		margin: 100px auto 100px auto;
-		margin: 0 auto;
 		height: auto;
 		display: flex;
 		justify-content: space-between;
 		overflow: hidden;
-		margin-top: 100px;
-		margin-bottom: 100px;
 		& a {
 			text-decoration: none;
 		}
@@ -699,5 +697,6 @@ body.lock {
 		font-family: $main_font;
 		font-size: 20px;
 		color: black;
+		text-align: center;
 	}
 }

@@ -139,8 +139,14 @@
 }
 
 .regdone {
+	width: 100%;
+	height: calc(100% - 80px);
+	margin-top: 100px;
 	&__row {
 		text-align: center;
+		font-size: 20px;
+		font-family: "Lemonada", cursive;
+		color: #ffd900;
 	}
 	// &__h1 {
 	// }

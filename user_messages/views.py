@@ -8,12 +8,12 @@ from django.contrib.auth.decorators import user_passes_test
 
 # Create your views here.
 @login_required(login_url='/login/')
-@user_passes_test(lambda u: u.groups.filter(name='manager').exists() or u.is_staff, login_url='/error/')
+@user_passes_test(lambda u: u.groups.filter(name='Manager').exists() or u.is_staff, login_url='/error/')
 def messages_view(request):
 
     messages = UserMessages.objects.filter(
         is_processed=False).order_by('send_date')
-    paginator = Paginator(messages, 2)
+    paginator = Paginator(messages, 4)
     page = request.GET.get('page')
     messages_page = paginator.get_page(page)
     return render(request, 'messages_views.html', context={'items': messages_page})

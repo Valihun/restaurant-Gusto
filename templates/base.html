@@ -33,11 +33,20 @@
 						<li><a href="#menu" class="menu__link">Menu</a></li>
 						<li><a href="#about-us" class="menu__link">About us</a></li>
 						<li><a href="#events" class="menu__link">Events</a></li>
+
+            {% if user.is_staff %}
+              <li><a href="#" class="menu__link">Category</a></li>
+              <li><a href="#" class="menu__link">Dishes</a></li>
+						{% endif %}
+
+						{% if user.is_active %}
+							<li><a href="view/?next={{request.path}}" class="menu__link">Messages</a></li>
+						{% endif %}
+
 						{% if user.is_authenticated %}
-						<li class="active"><a href="{% url 'logout'%}?next={{request.path}}" class="menu__link">Logout</a>
-						</li>
+              <li class="active"><a href="{% url 'logout'%}?next={{request.path}}" class="menu__link">Logout</a></li>
 						{% else %}
-						<li class="active"><a href="{% url 'login'%}?next={{request.path}}" class="menu__link">Login</a></li>
+              <li class="active"><a href="{% url 'login'%}?next={{request.path}}" class="menu__link">Login</a></li>
 						{% endif %}
 					</ul>
 				</nav>

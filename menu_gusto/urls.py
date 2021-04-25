@@ -3,6 +3,6 @@ from .views import *
 
 
 urlpatterns = [
-  path('<category>', category),
-  path('<category>/<dish>', dish),
+	path('<category>', category),
+	path('<category>/<dish>', dish),
 ]
