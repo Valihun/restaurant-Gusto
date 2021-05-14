@@ -1709,7 +1709,7 @@ body.lock {
   padding: 20px 100px 20px 100px;
   color: #ffd900;
   font-family: "Lemonada", cursive;
-  font-style: 14px;
+  font-size: 14px;
   overflow: auto;
 }
 
