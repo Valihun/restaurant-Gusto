@@ -1,5 +1,9 @@
+import os
+from uuid import uuid4
+
 from django import forms
-from .models import UserMessages
+from django.forms import fields
+from .models import Event, UserMessages, Category, Dish
 
 
 class UserMessageForm(forms.ModelForm):
@@ -19,3 +23,69 @@ class UserMessageForm(forms.ModelForm):
     class Meta:
         model = UserMessages
         fields = ('user_name', 'user_email', 'message')
+
+
+class CreateCategory(forms.ModelForm):
+    title = forms.CharField(max_length=50)
+    category_order = forms.IntegerField()
+    is_visible = forms.CheckboxInput()
+    is_special = forms.CheckboxInput()
+    photo = forms.ImageField()
+
+    class Meta:
+        model = Category
+        fields = (
+            'title',
+            'category_order',
+            'is_visible',
+            'is_special',
+            'photo'
+        )
+
+
+class CreateDish(forms.ModelForm):
+    title = forms.CharField(max_length=50)
+    price = forms.DecimalField(max_digits=7, decimal_places=2)
+    is_visible = forms.CheckboxInput()
+    is_special = forms.CheckboxInput()
+    description = forms.CharField(max_length=300,
+                                  widget=forms.Textarea(
+                                      attrs={'name': 'description', 'id': 'id_description',
+                                             'rows': '4'}))
+    photo = forms.ImageField()
+    #category = forms.ModelChoiceField(queryset=Category.objects.all(), empty_label=None)
+
+    class Meta:
+        model = Dish
+        fields = [
+            'title',
+            'price',
+            'is_visible',
+            'is_special',
+            'description',
+            'photo',
+            'category'
+        ]
+
+
+class CreateEvent(forms.ModelForm):
+    title = forms.CharField(max_length=50)
+    photo = forms.ImageField()
+    description = forms.CharField(max_length=300,
+                                  widget=forms.Textarea(
+                                      attrs={'name': 'description', 'id': 'id_description',
+                                             'rows': '4'}))
+    event_date = forms.DateField()
+    event_time = forms.TimeField()
+    price = forms.DecimalField()
+
+    class Meta:
+        model = Event
+        fields = [
+            "title",
+            "photo",
+            "description",
+            "event_date",
+            "event_time",
+            "price"
+        ]

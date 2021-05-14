@@ -1,7 +1,10 @@
 @import "_numstyle.scss";
 @import "_logregout.scss";
+@import "_categories.scss";
 @import "_dish.scss";
 @import "_messages.scss";
+@import "_events.scss";
+
 /*
 Main style's file
 */
@@ -307,8 +310,7 @@ body.lock {
 			width: 368px;
 			height: 60px;
 			background-color: black;
-			border-color: $main_color;
-			border-width: 1px;
+			//border: 1px solid $main_color;
 			color: $main_color;
 			cursor: pointer;
 			font-size: larger;
@@ -609,7 +611,7 @@ body.lock {
 	// width: 900px;
 	padding: 30px 0px 70px 0px;
 
-	.event__info {
+	.dish__information {
 		width: 700px;
 		height: 100px;
 		margin: 0 auto;
@@ -620,6 +622,29 @@ body.lock {
 		color: $main_color;
 		font-family: $main_font;
 		font-style: 14px;
+		overflow: auto;
+
+		.item__title {
+			font-family: $main_font;
+			font-size: 20px;
+			color: $main_color;
+			font-weight: 700;
+			text-align: center;
+		}
+
+		.item__description {
+			font-family: $main_font;
+			font-size: 15px;
+			color: white;
+		}
+
+		.item__price {
+			text-align: center;
+			font-family: $main_font;
+			font-size: large;
+			font-weight: 900;
+			color: #ffd900a1;
+		}
 	}
 
 	&__image {
