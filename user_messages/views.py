@@ -18,6 +18,8 @@ def messages_view(request):
     return render(request, 'messages_views.html', context={'items': messages_page})
 
 
+@login_required(login_url='/login/')
+@user_passes_test(lambda u: u.groups.filter(name='Manager').exists() or u.is_staff, login_url='/error/')
 def message_processed(request, message):
     message = UserMessages.objects.get(pk=message)
     message.is_processed = True

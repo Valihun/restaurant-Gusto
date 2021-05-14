@@ -1447,12 +1447,11 @@ body.lock {
   max-width: 100%;
   margin: 100px auto 100px auto;
   height: auto;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr 1fr 1fr;
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-gap: 25px;
   overflow: hidden;
   /*==========================================
 						Адаптив для Карточек
