@@ -258,7 +258,7 @@ h6 {
   height: calc(100% - 120px);
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: (1fr)[3];
+  -ms-grid-columns: 1fr 1fr 1fr;
       grid-template-columns: repeat(3, 1fr);
   -webkit-column-gap: 10px;
           column-gap: 10px;
