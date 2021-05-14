@@ -41,6 +41,9 @@ class Dish(models.Model):
     photo = models.ImageField(upload_to=get_file_name_dishes)
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
 
+    def get_absolute_url(self):
+        return f'/menu/dishes/{self.id}'
+
     def __str__(self):
         return f'{self.title}'
 
@@ -58,6 +61,9 @@ class Event(models.Model):
     event_date = models.DateField()
     event_time = models.TimeField()
     price = models.DecimalField(max_digits=7, decimal_places=2)
+
+    def get_absolute_url(self):
+        return f'/events/{self.id}'
 
     def __str__(self):
         return f'{self.title} : {self.event_date}'
